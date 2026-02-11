@@ -2,6 +2,7 @@ import torch
 from torch.utils.data import Dataset
 import pandas as pd
 from config import MAX_LEN
+from tokenizer import BPETokenizer
 
 class HindiDataset(Dataset):
     def __init__(self,csv_path,tokenizer):

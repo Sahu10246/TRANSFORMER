@@ -3,7 +3,7 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 from torch.cuda.amp import GradScaler, autocast
 from config import *
-from tokenizer import Tokenizer
+from tokenizer import BPETokenizer
 from dataset import HindiDataset
 from transformer import Transformer
 from loss import LabelSmoothingLoss
@@ -20,8 +20,9 @@ def train():
     print("Loading dataset...")
     df = pd.read_csv("hindi_dataset.csv")
 
-    tokenizer = Tokenizer()
+    tokenizer = BPETokenizer(vocab_size=10000)
     tokenizer.build_vocab(df["article"])
+    tokenizer.save("bpe_tokenizer.json")    
 
     dataset = HindiDataset("hindi_dataset.csv", tokenizer)
     loader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True)
