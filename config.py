@@ -12,5 +12,5 @@ WARMUP_STEPS = 4000
 LABEL_SMOOTHING = 0.1
 GRAD_CLIP = 1.0
 
-DEVICE = "cuda"
+DEVICE = "cuda" # if available 
 MODEL_PATH = "best_model.pth"
