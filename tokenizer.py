@@ -13,7 +13,7 @@ class BPETokenizer:
         self.special_tokens = ["<pad>", "<sos>", "<eos>", "<unk>"]
 
     # ----------------------------
-    # 1. Preprocess text
+    # 1. Preprocess text for data
     # ----------------------------
     def preprocess(self, text):
         text = text.lower()
